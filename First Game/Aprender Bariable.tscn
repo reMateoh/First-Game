@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://883hwklyuvnf"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_gvpur"]
+script/source = "using Godot;
+using System;
+
+public partial class AprenderBariable : Node2D
+{
+	private int vidajugador = 5;
+
+	private double tiempo = 0;
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+		/*int damage = 10, escudo = 5;
+		RecibirDaño(damage, escudo);
+		bool jugadorensuelo = true;
+		if (jugadorensuelo)
+		{
+			GD.Print(\"saltar\");
+		}
+		AccederSistema(\"Juan Pérez\");
+		Atacar(-12);*/
+		for (int i = 0; i < 10; i++)
+		{
+			GD.Print(i);
+		}
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+		tiempo += delta;
+		GD.Print((int)tiempo);
+		if (tiempo >= 5)
+		{
+			GD.Print(\"BOOM\");
+			SetProcessMode(ProcessModeEnum.Disabled);
+		}
+	}
+
+	void Atacar(int distancia)
+	{
+		int rangoDistancia = 10;
+		int rangoGolpe = 3;
+		if (distancia <= rangoDistancia && distancia > rangoGolpe)
+		{
+			GD.Print(\"Ataque a distancia\");
+		}
+		else if (distancia <= rangoGolpe)
+		{
+			GD.Print(\"Ataque cuerpo a cuerpo\");
+		}
+		else
+		{
+			GD.Print(\"Demasiado Lejos brooo\");
+		}
+		
+	}
+	void AccederSistema(string nombre)
+	{
+		if (nombre == \"Juan Pérez\")
+		{
+			GD.Print(\"Acceso permitido\");
+		}
+		else
+		{
+			GD.Print(\"Acceso Denegado\");
+		}
+	}
+
+	void RecibirDaño(int damage, int escudo)
+	{
+		int dañoreal = damage - escudo;
+		if (dañoreal < 0)
+		{
+			dañoreal = 0;
+		}
+
+		vidajugador -= dañoreal;
+	}
+}
+"
+
+[node name="AprenderBariable" type="Node2D" unique_id=118074125]
+script = SubResource("CSharpScript_gvpur")
