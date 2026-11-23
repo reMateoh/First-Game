@@ -11,12 +11,15 @@ config_version=5
 [application]
 
 config/name="Tutorial"
-run/main_scene="uid://cdgkvkjbjqn1c"
+run/main_scene="uid://b82cvk7rundjg"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=1150
+window/size/viewport_height=792
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
